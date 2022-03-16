@@ -12,8 +12,9 @@ function getBooksBorrowedCount(books) {
   return books.filter(books => !books.borrows[0].returned).length
 }
 
+//** 
 function getMostCommonGenres(books) {
-    let genres = []
+   /* let genres = []
     
     books.forEach(book => {
       
@@ -31,8 +32,34 @@ function getMostCommonGenres(books) {
     }) 
     return genres
       .sort((a, b) => b.count - a.count)
-      .splice(0, 5)
+      .splice(0, 5)*/
+
+return books.reduce((genres, book) => {
+    
+    let genreIndex = genres.findIndex(genre => genre.name === book.genre);
+    if (genreIndex !== -1) {
+       genres[genreIndex].count++
+    } else {
+      genres.push({name: book.genre, count: 1});
+    }
+    return genres
+  }, [])
+    .sort((a, b) => b.count - a.count)
+    .splice(0, 5)
   }
+
+  
+    
+  
+
+  // reduce = n
+  //    object by key = c
+  // map = O(n)
+  // n + n + c = 2n + c = 2n = n
+
+  // reduce = n
+  //   find = n 
+  // n * n = O(n^2)
 
 
 function getMostPopularBooks(books) {
@@ -45,6 +72,7 @@ function getMostPopularBooks(books) {
   
 }
 
+//**
 function getMostPopularAuthors(books, authors) {
 //create empty array authorList
 //loop through the books array 

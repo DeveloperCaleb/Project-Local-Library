@@ -20,7 +20,7 @@ function partitionBooksByBorrowedStatus(books) {
 }
 
 function getBorrowersForBook(book, accounts) {
-  //return an array of accounts that are chosed if the id of an account is found in the books borrowed section return with the returned status
+  //return an array of accounts that are chosen if the id of an account is found in the books borrowed section return with the returned status
   //filter through the accounts and return an array of accounts that are in the borrowed section
 
    //let accountFilter = accounts.filter(accounts => accounts.id === book.borrows.filter(book => book.id))
